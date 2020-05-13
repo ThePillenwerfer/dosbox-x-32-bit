@@ -19,8 +19,8 @@ Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this 
 You also need `fmpeg` and `libavdevice58` if you want to compile in the audio codec but the Stretch versions are too old. If you really want them, download, build and install the latest ffmpeg from: https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.bz2 That is an easy build but takes ages. Open `ffmpeg-4.2.2.tar.bz2` and extract the files to a directory of your choosing then open a terminal and cd into it. Then type:—
 
 	./configure 
-	make sudo 
-	make install
+	make 
+	sudo make install
 
 Now go to https://github.com/joncampbell123/dosbox-x and click the green *Clone or download* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
 
