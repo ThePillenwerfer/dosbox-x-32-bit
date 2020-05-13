@@ -3,14 +3,14 @@ The sole purpose of this repository is to provide a 32-bit Linux binary of dosbo
 My binary is compiled without the AV codec.  As far as I am aware this is only needed for playing audio CDs, MP3s and the like.  Compiling it in adds 100MBs to the binary so really doesn’t seem worth it.
 
 
-#Know Bugs
+# Know Bugs
 
 I have never been able to make the virtual dot-matrix printer work.  This isn’t a very big deal as capturing the LPT1 output to a file does work and that can then be sent to a printer using lpr.  That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer.  If the program is setup for a dot-matrix printer such as an Epson FX80 see:
 
 If using the UK kepyboard layout you can't type a # or ~.
 
 
-#Building dosbox-x
+# Building dosbox-x
 
 Dosbox-x is poorly documented — not surprising as the people involved with it concentrate their efforts on the software itself.  It took me months to fathom how to build it successfully so here’s what I learnt.
 
@@ -43,7 +43,7 @@ A good while later that should finish and you’ll have a binary called `dosbox-
 If all is well you can move that to wherever you like, though the usual place is `usr/bin`.
 
 
-Configuration
+# Configuration
 
 When you first run dosbox-x it will create a directory `~/.dosbox` which contains a blank configuration file called...  You can edit that to suit your needs.  This repository contains the reference version which gives details of ALL the possible settings, though you’re unlikely to need most of them.  For instance the configuration file I actually use only consists of:—
 
