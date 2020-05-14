@@ -1,0 +1,25 @@
+#!/bin/bash
+
+### DEPENDS ON inotify-tools ###
+
+CAPTURES=~/capture                             # Directory where DOSBox-X sends files from LPT1
+
+echo Setting-up inotifywait
+/usr/bin/inotifywait -e close_write -mrq $CAPTURES | while read line; do
+set -- "$line"
+IFS=" "; declare -a Array=($*)
+FILE="${Array[2]}"
+FILENAME=${FILE%.*}
+FILEEXT=${FILE##*.}
+IFS=""
+
+if [ "$FILEEXT" == "prt" ];                    # Has a file with a prt extension appeared?
+then
+  echo Printing
+  lpr $CAPTURES/$FILE                          # Print it
+  echo Removing temporary file     
+  rm $CAPTURES/$FILE                           # Delete the prt file - comment this line out if you want to keep it
+fi
+
+
+done
