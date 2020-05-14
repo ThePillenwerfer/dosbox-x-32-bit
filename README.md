@@ -1,4 +1,4 @@
-The sole purpose of this repository is to provide a 32-bit Linux binary of dosbox-x. It’s main repository only provides a 64-bit one and that is packed in .rpm format. Uses of Debian-derived systems can however download that, open it with an archive manager and extract the binary.
+The sole purpose of this repository is to provide a 32-bit Linux binary of dosbox-x. Its main repository only provides a 64-bit one and that is packed in .rpm format. Uses of Debian-derived systems can however download that, open it with an archive manager and extract the binary.
 
 My binary is compiled without the AV codec. As far as I am aware this is only needed for playing audio CDs, MP3s and the like. Compiling it in adds 100MBs to the binary so really doesn’t seem worth it.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
