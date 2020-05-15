@@ -69,5 +69,5 @@ mount c: ~/.dos
 c:
 ```
 
-There is a Wiki for dosbox-x at https://github.com/Wengier/dosbox-x-wiki/wiki but it is primarily aimed at Windows users, thought a lot of the information in it applies to whatever system it's running on.
+There is a Wiki for dosbox-x at https://github.com/Wengier/dosbox-x-wiki/wiki but it is primarily aimed at Windows users, though a lot of the information in it applies to whatever system it's running on.
 
