@@ -2,6 +2,8 @@
 
 ### DEPENDS ON inotify-tools ###
 
+## If using epsonps ensure that the epson2pdf script is somewhere in your PATH or add the path to it at the begining of line 21
+
 CAPTURES=~/capture                              # Directory where DOSBox-X sends files from LPT1
 
 echo Setting-up inotifywait
@@ -16,9 +18,12 @@ IFS=""
 if [ "$FILEEXT" == "prt" ];                      # Has a file with a prt extension appeared?
 then
   echo Printing $CAPTURES/$FILE 
-  lpr $CAPTURES/$FILE                            # Print it
+#  epson2pdf -o$CAPTURES/$FILENAME.pdf $FILE     # Uncomment if using epsonps.  Convert prt file to pdf
+#  lpr $CAPTURES/$FILENAME.pdf                   # Uncomment if using epsonps and comment out next line.  Print pdf file
+  lpr $CAPTURES/$FILE                            # Print prt file
   echo Removing temporary file $CAPTURES/$FILE     
   rm $CAPTURES/$FILE                             # Delete the prt file - comment this line out if you want to keep it
+#  rm $CAPTURES/$FILENAME.pdf                    # Uncomment if using epsonps and don't want to keep pdf file
 fi
 
 

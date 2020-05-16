@@ -4,7 +4,7 @@ My binary is compiled without the AV codec. As far as I am aware this is only ne
 
 
 # Know Bugs
-If using the UK keyboard layout you can't type a # or ~.
+KEYB causes slight distortion of display and if using the UK keyboard layout you can't type a # or ~.
 
 I have never been able to make the virtual dot-matrix printer work. This isn’t a very big deal as capturing the LPT1 output to a file does work and that can then be sent to a printer using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer. If the program is setup for a dot-matrix printer such as an Epson FX80 see: https://github.com/ThePillenwerfer/epsonps
 
