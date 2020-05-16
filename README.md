@@ -6,10 +6,6 @@ My binary is compiled without the AV codec. As far as I am aware this is only ne
 # Know Bugs
 KEYB causes slight distortion of display and if using the UK keyboard layout you can't type a # or ~.
 
-I have never been able to make the virtual dot-matrix printer work. This isn’t a very big deal as capturing the LPT1 output to a file does work and that can then be sent to a printer using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer. If the program is setup for a dot-matrix printer such as an Epson FX80 see: https://github.com/ThePillenwerfer/epsonps
-
-Printing this way can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print calls CapturePrint, which actually does the printing,  then loads dosbox-x and when you quit that switches off the printing mechanism.  Normal dosbox-x parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**, especially if you are using epsonps.  As they stand they assume that dosbox-x sends files it has captured from LPT1 to `~/capture`, that the CapturePrint script is in `~/.dosbox` and that the dosbox-x binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`.
-
 
 # Building dosbox-x
 Dosbox-x is poorly documented — not surprising as the people involved with it concentrate their efforts on the software itself. It took me months to fathom how to build it successfully so here’s what I learnt.
@@ -70,4 +66,36 @@ c:
 ```
 
 There is a Wiki for dosbox-x at https://github.com/Wengier/dosbox-x-wiki/wiki but it is primarily aimed at Windows users, though a lot of the information in it applies to whatever system it's running on.
+
+
+# Printing
+
+DOSBox-X has a built-in virtual Epson dot-matrix printer but the developers seem to have every little interest in it and it’s far from good; the line-spacing seems wrong for a start.  It was only from early May 2020 that it even worked on Linux.   The other problem is that they provide NO instructions on its use.  It was taken from DOSBox-Daum so its Documentation applies but that’s far from clear.
+
+Firstly it needs some fonts to be able to do anything.  These are `courier.ttf`, `roman.ttf`, `sansserif.ttf`, `ocra.ttf` and `script.ttf` and must be in the directory `~/.dosbox/FONTS` — note the capital letters.  It doesn’t matter what the fonts actually are providing they have those names.  For instance if you prefer FreeMono to Courier you can copy that to `~/.dosbox/FONTS` and rename the copy `courier.ttf` or use links. eg `ln ~/dosbox/FONTS/courier.ttf  /path/to/freemono.ttf`.
+
+To use it you need to set `parallel1=printer` in the `[parallel]` section of the .conf file.
+
+My suggested version of the `[printer]` section is:—
+
+```
+[printer]
+printer     = true
+dpi         = 360
+width       = 82
+height      = 117
+printoutput = png
+multipage   = false
+docpath     = /home/joe/capture
+timeout     = 10
+```
+
+The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so I’ve changed it to A4 (8¼” x 11¾”).  Besides that I have changed the `timeout` from `0`.  If that’s left it will only ‘print’ when it receives a form feed and not all software sends one.
+
+My preferred method of printing is by setting `parellel1=file` and then printing that using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer. If the program is set-up for a dot-matrix printer such as an Epson FX80 see: https://github.com/ThePillenwerfer/epsonps
+
+Printing this way can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print calls CapturePrint, which actually does the printing,  then loads dosbox-x and when you quit that switches off the printing mechanism.  Normal dosbox-x parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**, especially if you are using epsonps.  As they stand they assume that dosbox-x sends files it has captured from LPT1 to `~/capture`, that the CapturePrint script is in `~/.dosbox` and that the dosbox-x binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`.
+
+Whichever method is used there’s a lot of messing about to set it up.
+
 
