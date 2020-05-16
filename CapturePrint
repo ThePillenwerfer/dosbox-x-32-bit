@@ -2,7 +2,7 @@
 
 ### DEPENDS ON inotify-tools ###
 
-## If using epsonps ensure that the epson2pdf script is somewhere in your PATH or add the path to it at the begining of line 21
+## If using epsonps ensure that the epson2pdf script is somewhere in your $PATH or add the path to it at the begining of line 21
 
 CAPTURES=~/capture                              # Directory where DOSBox-X sends files from LPT1
 
