@@ -70,7 +70,7 @@ There is a Wiki for dosbox-x at https://github.com/Wengier/dosbox-x-wiki/wiki bu
 
 # Printing
 
-DOSBox-X has a built-in virtual dot-matrix printer but the developers seem to have every little interest in it and it’s far from good.  It was only from early May 2020 that it even worked on Linux and even now it won't print to a real printer, only produce an image of what would have come out of one.   The other problem is that they provide NO instructions on its use.  It was taken from DOSBox-Daum so its Documentation applies but that’s far from clear.
+DOSBox-X has a built-in virtual dot-matrix printer but the developers seem to have every little interest in it and it’s far from good.  It was only from early May 2020 that it even worked on Linux and even now it won't print to a real printer, only produce an image of what would have come out of one.  You then have to print it with `lpr`.  The other problem is that they provide NO instructions on its use.  It was taken from DOSBox-Daum so its Documentation applies but that’s far from clear.
 
 Firstly it needs some fonts to be able to do anything.  These are `courier.ttf`, `roman.ttf`, `sansserif.ttf`, `ocra.ttf` and `script.ttf` and must be in the directory `~/.dosbox/FONTS` — note the capital letters.  It would appear that the only one that is essential is `courier.ttf`.  It doesn’t matter what the fonts actually are providing they have those names.  For instance if you prefer FreeMono to Courier you can copy that to `~/.dosbox/FONTS` and rename the copy `courier.ttf` or use links. eg `ln ~/dosbox/FONTS/courier.ttf  /path/to/FreeMono.ttf`.
 
@@ -84,22 +84,22 @@ printer     = true
 dpi         = 360
 width       = 82
 height      = 117
-printoutput = png
+printoutput = ps
 multipage   = false
 docpath     = /home/<USER>/capture
 timeout     = 1000
 ```
 
-The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so I’ve changed it to A4 (8¼” x 11¾”).  Besides that I have changed the `timeout` from `0`.  If that’s left it will only ‘print’ when it receives a form feed and not all software sends one.  Now it if no data comes after one second it assumes that's all there is.
+The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so I’ve changed it to A4 (8¼” x 11¾”).  Besides that I have changed the `timeout` from `0`.  If that’s left it will only ‘print’ when it receives a form feed and not all software sends one.  Now if no data comes for one second it assumes that's all there is and 'prints'.
 
 In `docpath`, `<USER>` needs changing to your user name.  Another 'quirk' is that `~/` won't work; it has to be given in full.
 
 According to the reference .conf file if `printoutput=printer` it will print to your actual printer but this doesn't work on Linux.
 
-My preferred method of printing is by setting `parellel1=file` and then printing that using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer. 
+My preferred way of printing is to set `parellel1=file` and then print the resulting file using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer.  If your DOS program can only operate with a dot-matrix printer you'll have to use the virtual one though.
 
-Printing this way can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print calls CapturePrint, which actually does the printing,  then loads dosbox-x and when you quit that switches off the printing mechanism.  Normal dosbox-x parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**.  As they stand they assume that dosbox-x sends files it has captured from LPT1 to `~/capture`, that the CapturePrint script is in `~/.dosbox` and that the dosbox-x binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`.
+Printing a file that has been created either by capture or the virtual dot-matrix printer can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print sets up CapturePrint, which actually does the printing,  then loads dosbox-x and when you quit that switches off the printing mechanism.  Normal dosbox-x parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**.  As they stand they assume that dosbox-x sends files it has captured from LPT1 or created by the virtual dot-matrix printer to `~/capture`, that the CapturePrint script is in `~/.dosbox` and that the dosbox-x binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`, plus `ghostscript` if you want to print postscript files created with the virtual dot-matrix printer.
 
-Whichever method is used there’s a lot of messing about to set it up.
+Whichever method is used there’s a lot of messing about to set it up and you'll have to experiment.
 
 

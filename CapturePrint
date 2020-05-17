@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ### DEPENDS ON inotify-tools ###
+### Also depends on GhostScript if printing ps files generated with virtual dot-matrix printer ###
 
 CAPTURES=~/capture                              # Directory where DOSBox-X sends files from LPT1
 
@@ -21,5 +22,14 @@ then
   rm $CAPTURES/$FILE                             # Delete the prt file - comment this line out if you want to keep it
 fi
 
+if [ "$FILEEXT" == "ps" ];                       # Has a file with a ps extension appeared?
+then
+  echo Printing $CAPTURES/$FILE 
+                                                 #Use GhostScript to convert it to a PDF
+  gs -sOutputFile=$CAPTURES/$FILENAME.pdf -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -sDEVICE=pdfwrite -dSAFER $CAPTURES/$FILE 
+  lpr $CAPTURES/$FILENAME.pdf                    # Print pdf file
+  echo Removing temporary files $CAPTURES/$FILE $CAPTURES/$FILENAME.pdf    
+  rm $CAPTURES/$FILE $CAPTURES/$FILENAME.pdf     # Delete the prt and pdf files - comment this line out if you want to keep them
+fi
 
 done
