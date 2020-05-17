@@ -70,9 +70,9 @@ There is a Wiki for dosbox-x at https://github.com/Wengier/dosbox-x-wiki/wiki bu
 
 # Printing
 
-DOSBox-X has a built-in virtual Epson dot-matrix printer but the developers seem to have every little interest in it and it’s far from good; the line-spacing seems wrong for a start.  It was only from early May 2020 that it even worked on Linux.   The other problem is that they provide NO instructions on its use.  It was taken from DOSBox-Daum so its Documentation applies but that’s far from clear.
+DOSBox-X has a built-in virtual dot-matrix printer but the developers seem to have every little interest in it and it’s far from good; the line-spacing seems wrong for a start.  It was only from early May 2020 that it even worked on Linux and even now it won't print to a real printer, only produce an image of what would have come out of one.   The other problem is that they provide NO instructions on its use.  It was taken from DOSBox-Daum so its Documentation applies but that’s far from clear.
 
-Firstly it needs some fonts to be able to do anything.  These are `courier.ttf`, `roman.ttf`, `sansserif.ttf`, `ocra.ttf` and `script.ttf` and must be in the directory `~/.dosbox/FONTS` — note the capital letters.  It doesn’t matter what the fonts actually are providing they have those names.  For instance if you prefer FreeMono to Courier you can copy that to `~/.dosbox/FONTS` and rename the copy `courier.ttf` or use links. eg `ln ~/dosbox/FONTS/courier.ttf  /path/to/freemono.ttf`.
+Firstly it needs some fonts to be able to do anything.  These are `courier.ttf`, `roman.ttf`, `sansserif.ttf`, `ocra.ttf` and `script.ttf` and must be in the directory `~/.dosbox/FONTS` — note the capital letters.  It would appear that the only one that is essential is `courier.ttf`.  It doesn’t matter what the fonts actually are providing they have those names.  For instance if you prefer FreeMono to Courier you can copy that to `~/.dosbox/FONTS` and rename the copy `courier.ttf` or use links. eg `ln ~/dosbox/FONTS/courier.ttf  /path/to/freemono.ttf`.
 
 To use it you need to set `parallel1=printer` in the `[parallel]` section of the .conf file.
 
@@ -87,10 +87,12 @@ height      = 117
 printoutput = png
 multipage   = false
 docpath     = /home/joe/capture
-timeout     = 10
+timeout     = 1000
 ```
 
 The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so I’ve changed it to A4 (8¼” x 11¾”).  Besides that I have changed the `timeout` from `0`.  If that’s left it will only ‘print’ when it receives a form feed and not all software sends one.
+
+According to the reference .conf file if `printoutput=printer` it will print to your actual printer but this doesn't work on Linux.
 
 My preferred method of printing is by setting `parellel1=file` and then printing that using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer. If the program is set-up for a dot-matrix printer such as an Epson FX80 see: https://github.com/ThePillenwerfer/epsonps
 
