@@ -3,7 +3,7 @@
 ### DEPENDS ON inotify-tools ###
 ### Also depends on GhostScript if printing ps files generated with virtual dot-matrix printer ###
 
-CAPTURES=~/capture                              # Directory where DOSBox-X sends files from LPT1
+CAPTURES=~/capture                               # Directory where DOSBox-X sends files from LPT1 and virtual dot-matrix printer
 
 echo Setting-up inotifywait
 /usr/bin/inotifywait -e close_write -mrq $CAPTURES | while read line; do

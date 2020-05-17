@@ -2,6 +2,8 @@ The sole purpose of this repository is to provide a 32-bit Linux binary of dosbo
 
 My binary is compiled without the AV codec. As far as I am aware this is only needed for playing audio CDs, MP3s and the like. Compiling it in adds 100MBs to the binary so really doesn’t seem worth it.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
+The binary is in the `binary` directory above and it is also available as a `.deb` package under *releases*.  For most people the simplest way to proceed is to click releases, then dosbox-x\_0.83.2\_i386.deb to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg dosbox-x_0.83.2_i386.deb` from a terminal.
+
 
 # Know Bugs
 KEYB causes slight distortion of display and if using the UK keyboard layout you can't type a # or ~.
