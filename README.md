@@ -102,6 +102,6 @@ My preferred way of printing is to set `parellel1=file` and then print the resul
 
 Printing a file that has been created either by capture or the virtual dot-matrix printer can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print sets up CapturePrint, which actually does the printing,  then loads dosbox-x and when you quit that switches off the printing mechanism.  Normal dosbox-x parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**.  As they stand they assume that dosbox-x sends files it has captured from LPT1 or created by the virtual dot-matrix printer to `~/capture`, that the CapturePrint script is in `~/.dosbox` and that the dosbox-x binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`, plus `ghostscript` if you want to print postscript files created with the virtual dot-matrix printer.
 
-Whichever method is used there’s a lot of messing about to set it up and you'll have to experiment.
+Besides the above you need to configure your DOS program.  These vary as to how much you can configure them though.  Ideally if you are using the virtual dot-matrix printer it would be set-up to print to an Epson SQ-860 but this may not be possible if the program pre-dates that model.  I've found LQ-800 to work as does IBM Pro Printer.  The good old Epson FX-80 causes the lines to print too far apart meaning they come out five to the inch instead of six.  As previously said, if your program could print to an HP Laserjet the best way is to set it to that and use the `parellel1=file` method.
 
-
+Really you'll have to experiment to find what works best with the soft- and hardware you have.
