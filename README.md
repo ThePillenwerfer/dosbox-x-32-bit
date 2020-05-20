@@ -43,7 +43,7 @@ If all is well you can move that to wherever you like, though the usual place is
 
 # Configuration
 
-Settings are stored in the file `~/.dosbox/dosbox-x.conf`.  This repository contains the reference version which gives details of ALL the possible settings, though you’re unlikely to need most of them. For instance the configuration file I actually use only consists of:—
+Settings are stored in the file `~/.dosbox/dosbox-x-0.83.2.conf`.  This repository contains the reference version which gives details of ALL the possible settings, though you’re unlikely to need most of them. For instance the configuration file I actually use only consists of:—
 
 ```
 [sdl]
@@ -94,7 +94,7 @@ timeout     = 1000
 
 The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so I’ve changed it to A4 (8¼” x 11¾”).  Besides that I have changed the `timeout` from `0`.  If that’s left it will only ‘print’ when it receives a form feed and not all software sends one.  Now if no data comes for one second it assumes that's all there is and 'prints'.
 
-In `docpath`, `<USER>` needs changing to your user name.  Another 'quirk' is that `~/` won't work; it has to be given in full.
+In `docpath`, `<USER>` needs changing to your user name.  Another 'quirk' is that `~/` won't work here; it has to be given in full.
 
 According to the reference .conf file if `printoutput=printer` it will print to your actual printer but this doesn't work on Linux.
 
