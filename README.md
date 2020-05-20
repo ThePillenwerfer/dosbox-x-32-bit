@@ -1,4 +1,4 @@
-The sole purpose of this repository is to provide a 32-bit Linux binary of dosbox-x. Its main repository only provides a 64-bit one and that is packed in .rpm format. Uses of Debian-derived systems can however download that, open it with an archive manager and extract the binary.
+The sole purpose of this repository is to provide a 32-bit Linux binary of DOSBox-X. Its main repository only provides a 64-bit one and that is packed in .rpm format. Uses of Debian-derived systems can however download that, open it with an archive manager and extract the binary.
 
 My binary is compiled without the AV codec. As far as I am aware this is only needed for playing audio CDs, MP3s and the like. Compiling it in adds 100MBs to the binary so really doesn’t seem worth it.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
@@ -9,14 +9,14 @@ On Debian, Ubuntu, Mint &c click *releases*, then *dosbox-x\_0.83.2-1\_i386.deb*
 KEYB causes slight distortion of display and if using the UK keyboard layout you can't type a # or ~.
 
 
-# Building dosbox-x
+# Building DOSBox-X
 Dosbox-x is poorly documented — not surprising as the people involved with it concentrate their efforts on the software itself. It took me months to fathom how to build it successfully so here’s what I learnt.
 
 Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this by installing `build-essential`. Then you need dosbox-x’s build dependencies. These are installed by:—
 
 	sudo apt-get install automake libncurses-dev nasm libsdl-net1.2-dev libpcap-dev libfluidsynth-dev libavformat-* libswscale-* libavcodec-* libfreetype6-dev
 
-You also need `ffmpeg` and `libavdevice58` if you want to compile in the audio codec but ones in the Debian Stretch, Ubuntu Xenial and Ubuntu Bionic repositories are too old. If you really want them, download, build and install the latest ffmpeg from: https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.bz2 That is an easy build but takes ages. Open `ffmpeg-4.2.2.tar.bz2` and extract the files to a directory of your choosing then open a terminal and cd into it. Then type:—
+You also need `ffmpeg` and `libavdevice58` if you want to compile in the audio codec but ones in the Debian Stretch, Ubuntu Xenial and Ubuntu Bionic repositories are too old. If you really want them, download, build and install the latest ffmpeg from: https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.bz2. That is an easy build but takes ages. Open `ffmpeg-4.2.2.tar.bz2` and extract the files to a directory of your choosing then open a terminal and cd into it. Then type:—
 
 	./configure 
 	make 
@@ -24,7 +24,7 @@ You also need `ffmpeg` and `libavdevice58` if you want to compile in the audio c
 
 Now go to https://github.com/joncampbell123/dosbox-x and click the green *Clone or download* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
 
-To build the full version of dosbox-x type:—
+To build the full version of DOSBox-X type:—
 
 	./build
 
@@ -34,7 +34,7 @@ To build it without the AV codec it’s:—
 
 There are other ./build-whatever scripts available for different situations.
 
-A good while later that should finish and you’ll have a binary called dosbox-x in the `/src` sub-directory. You can test that by typing:—
+A good while later that should finish and you’ll have a binary called `dosbox-x` in the `/src` sub-directory. You can test that by typing:—
 
 	src/dosbox-x
 
@@ -67,7 +67,7 @@ mount c: ~/.dos
 c:
 ```
 
-There is an embryonic Wiki for dosbox-x at https://github.com/Wengier/dosbox-x-wiki/wiki but it is primarily aimed at Windows users, though a lot of the information in it applies to whatever system it's running on.
+There is an embryonic Wiki for DOSBox-X at https://github.com/Wengier/dosbox-x-wiki/wiki but it is primarily aimed at Windows users, though a lot of the information in it applies to whatever system it's running on.
 
 
 # Printing
@@ -100,7 +100,7 @@ According to the reference .conf file if `printoutput=printer` it will print to 
 
 My preferred way of printing is to set `parellel1=file` and then print the resulting file using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer.  If your DOS program can only operate with a dot-matrix printer you'll have to use the virtual one though.
 
-Printing a file that has been created either by capture or the virtual dot-matrix printer can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print sets up CapturePrint, which actually does the printing,  then loads dosbox-x and when you quit that switches off the printing mechanism.  Normal dosbox-x parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**.  As they stand they assume that dosbox-x sends files it has captured from LPT1 or created by the virtual dot-matrix printer to `~/capture`, that the CapturePrint script is in `~/.dosbox` and that the dosbox-x binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`, plus `ghostscript` if you want to print postscript files created with the virtual dot-matrix printer.
+Printing a file that has been created either by capture or the virtual dot-matrix printer can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print sets up CapturePrint, which actually does the printing,  then loads DOSBox-X and when you quit that switches off the printing mechanism.  Normal DOSBox-X parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**.  As they stand they assume that DOSBox-X sends files it has captured from LPT1 or created with the virtual dot-matrix printer to `~/capture`, that the CapturePrint script is in `~/.dosbox` and that the DOSBox-X binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`, plus `ghostscript` if you want to print postscript files created with the virtual dot-matrix printer.
 
 Besides the above you need to configure your DOS program.  These vary as to how much you can configure them though.  Ideally if you are using the virtual dot-matrix printer it would be set-up to print to an Epson SQ-860 but this may not be possible if the program pre-dates that model.  I've found LQ-800 to work as does IBM Pro Printer.  The good old Epson FX-80 causes the lines to print too far apart meaning they come out five to the inch instead of six.  As previously said, if your program could print to an HP Laserjet the best way is to set it to that and use the `parellel1=file` method.
 
