@@ -67,12 +67,12 @@ mount c: ~/.dos
 c:
 ```
 
-There is an embryonic Wiki for DOSBox-X at https://github.com/Wengier/dosbox-x-wiki/wiki but it is primarily aimed at Windows users, though a lot of the information in it applies to whatever system it's running on.
+There is a Wiki for DOSBox-X at https://github.com/Wengier/dosbox-x-wiki/wiki which is currently actively being updated/expanded.
 
 
 # Printing
 
-DOSBox-X has a built-in virtual dot-matrix printer but the developers seem to have every little interest in it.  It was only from early May 2020 that it even worked at all on Linux and still can't actually print to a real printer, only produce an image of what would have come out of one.  You then have to print that with `lpr`.  The other problem is that they currently provide NO instructions on its use, though that is being worked on.  The part of DOSBox-X for printing was taken from DOSBox-Daum so its Documentation applies but that’s far from clear.
+DOSBox-X has a built-in virtual dot-matrix printer but the it's somewhat rough 'round the edges as yet.  It was only from early May 2020 that it even worked at all on Linux and still can't actually print to a real printer, only produce an image of what would have come out of one.  You then have to print that with `lpr`.  There are currently no instructions on its use in the wiki, though that is being worked on.  The part of DOSBox-X for printing was taken from DOSBox-Daum so its Documentation applies but that’s far from clear.
 
 Firstly it needs some fonts to be able to do anything.  These are `courier.ttf`, `roman.ttf`, `sansserif.ttf`, `ocra.ttf` and `script.ttf` and must be in the directory `~/.dosbox/FONTS` — note the capital letters.  It would appear that the only one that is essential is `courier.ttf`.  It doesn’t matter what the fonts actually are providing they have those names.  For instance if you prefer FreeMono to Courier you can copy that to `~/.dosbox/FONTS` and rename the copy `courier.ttf` or use links. eg `ln ~/dosbox/FONTS/courier.ttf  /path/to/FreeMono.ttf`.
 
