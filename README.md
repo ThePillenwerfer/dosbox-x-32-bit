@@ -10,7 +10,7 @@ KEYB causes slight distortion of display and if using the UK keyboard layout you
 
 
 # Building DOSBox-X
-Dosbox-x is poorly documented — not surprising as the people involved with it concentrate their efforts on the software itself. It took me months to fathom how to build it successfully so here’s what I learnt.
+Dosbox-x documentation is still far from complete — not surprising as the people involved with it concentrate their efforts on the software itself. It took me months to fathom how to build it successfully so here’s what I learnt.
 
 Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this by installing `build-essential`. Then you need dosbox-x’s build dependencies. These are installed by:—
 
