@@ -5,10 +5,6 @@ My binary is compiled without the AV codec. As far as I am aware this is only ne
 On Debian, Ubuntu, Mint &c click *releases*, then *dosbox-x\_0.83.2-1\_i386.deb* to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg dosbox-x_0.83.2-1_i386.deb` from a terminal.  The binary itself is also in the `binary` directory above for people not using Debian-based distros.  
 
 
-# Know Bugs
-KEYB causes slight distortion of display and if using the UK keyboard layout you can't type a # or ~.
-
-
 # Building DOSBox-X
 Dosbox-x documentation is still far from complete — not surprising as the people involved with it concentrate their efforts on the software itself. It took me months to fathom how to build it successfully so here’s what I learnt.
 
