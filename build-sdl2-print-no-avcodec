@@ -29,6 +29,6 @@ if test -z "$x" ; then
 fi
 
 chmod +x configure
-./configure --enable-core-inline --disable-debug --disable-avcodec --prefix=/usr --enable-freetype --enable-printer --enable-sdl2 "$@" $opt || exit 1
+./configure --enable-core-inline --disable-debug --prefix=/usr --enable-freetype --enable-printer --enable-sdl2 "$@" $opt || exit 1
 make -j3 || exit 1
 
