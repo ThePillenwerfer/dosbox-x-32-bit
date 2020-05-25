@@ -19,7 +19,7 @@ You also need `ffmpeg` and `libavdevice58` if you want to compile in the audio c
 	make 
 	sudo make install
 
-Be warned though it takes ages, over half-an-hour for me.
+Be warned though it took over half-an-hour for me.
 
 Now go to https://github.com/joncampbell123/dosbox-x and click the green *Clone or download* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
 
@@ -33,11 +33,11 @@ To build it without the AV codec it’s:—
 
 There are other ./build-whatever scripts available for different situations.
 
-Now a load of meaningless text will appear on your screen that's scrolling too quickly to read.  Some of it will look like error messages but don't matter.  A good while later that should finish and you’ll have a binary called `dosbox-x` in the `/src` sub-directory. You can test that by typing:—
+Now a load of meaningless text will appear on your screen that's scrolling too quickly to read.  Some of it will look like error messages but don't matter.  A good while later that should finish and you’ll have a binary called `dosbox-x` in the `src` sub-directory. You can test that by typing:—
 
 	src/dosbox-x
 
-If all is well you can move that to wherever you like, though the usual place is `usr/bin.`
+If all is well you can move that to wherever you like, though the usual place is `/usr/bin.`
 
 
 # Configuration
