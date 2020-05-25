@@ -2,7 +2,7 @@ The sole purpose of this repository is to provide a 32-bit Linux binary of DOSBo
 
 There are actually two binaries available, one built on Debian Stretch and the other on Buster.  What versions of the Ubuntu family they may be compatible with I don't know; if one doesn't work try the other and if neither do see next section.  Both are compiled without the FFMPEG. As far as I am aware this is only needed for playing audio CDs, MP3s and the like. Compiling it in adds 100MBs to the binary so really doesn’t seem worth it.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
-Click *releases*, then *dosbox-x\_0.83.2-1\<verion\>\_i386.deb* to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg dosbox-x_0.83.2-1<version>_i386.deb` from a terminal.  
+Click *releases*, then *dosbox-x\_0.83.2-1-\<verion\>\_i386.deb* to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg dosbox-x_0.83.2-1-<version>_i386.deb` from a terminal.  
 
 
 # Building DOSBox-X
