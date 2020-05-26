@@ -42,6 +42,8 @@ If all is well you can move that to wherever you like, though the usual place is
 
 # Configuration
 
+*This information, and the Printing section below, applies to the binaries from this repository.  DOSBox-X has now changed the location of the configuration file to `~/.config/dosbox-x` so if you've downloaded and built the code yourself that will apply.  The name of the `.conf` file will also be different.  To find out what it is looking for and where run `dosbox-x --printconf` from a terminal.*
+
 Settings are stored in the file `~/.dosbox/dosbox-x-0.83.2.conf`.  This repository contains the reference version which gives details of ALL the possible settings, though you’re unlikely to need most of them. For instance the configuration file I actually use only consists of:—
 
 ```
