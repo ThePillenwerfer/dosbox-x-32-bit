@@ -1,6 +1,6 @@
 The sole purpose of this repository is to provide a 32-bit Linux binary of DOSBox-X. Its main repository only provides a 64-bit one and that is packed in .rpm format. Uses of Debian-derived systems can however download that, open it with an archive manager and extract the binary.
 
-There are actually two binaries available, one built on Debian Stretch and the other on Buster.  What versions of the Ubuntu family they may be compatible with I don't know; if one doesn't work try the other and if neither do see next section.  Both are compiled without ffmpeg. As far as I am aware this is only needed for playing audio CDs, MP3s and the like. Compiling it in adds 100MBs to the binary so really doesn’t seem worth it.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
+There are actually two binaries available here, one built on Debian Stretch and the other on Buster.  What versions of the Ubuntu family they may be compatible with I don't know; if one doesn't work try the other and if neither do see next section.  Both are compiled without ffmpeg.  As far as I am aware this is only needed for playing audio CDs, MP3s and the like. Compiling it in adds 100MBs to the binary so really doesn’t seem worth it.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
 Click __*release*__, then __*dosbox-x\_0.83.2-1-\<version\>\_i386.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.2-1-<version>_i386.deb` from a terminal.  
 
@@ -73,9 +73,9 @@ There is a Wiki for DOSBox-X at https://github.com/Wengier/dosbox-x-wiki/wiki wh
 
 # Printing
 
-DOSBox-X has a built-in virtual dot-matrix printer but the it's somewhat rough 'round the edges as yet.  It was only from early May 2020 that it even worked at all on Linux and still can't actually print to a real printer, only produce an image of what would have come out of one.  You then have to print that with `lpr`.  There are currently no instructions on its use in the wiki, though that is being worked on.  The part of DOSBox-X for printing was taken from DOSBox-Daum so its Documentation applies but that’s far from clear.
+DOSBox-X has a built-in virtual dot-matrix printer taken from DOSBox-Daum but it's somewhat rough 'round the edges as yet.  It was only from early May 2020 that it even worked at all on Linux and still can't actually print to a real printer, only produce an image of what would have come out of one.  You then have to print that with `lpr`.  
 
-Firstly it needs some fonts to be able to do anything.  These are `courier.ttf`, `roman.ttf`, `sansserif.ttf`, `ocra.ttf` and `script.ttf` and must be in the directory `~/.dosbox/FONTS` — note the capital letters.  It would appear that the only one that is essential is `courier.ttf`.  It doesn’t matter what the fonts actually are providing they have those names.  For instance if you prefer FreeMono to Courier you can copy that to `~/.dosbox/FONTS` and rename the copy `courier.ttf` or use links. eg `ln ~/dosbox/FONTS/courier.ttf  /path/to/FreeMono.ttf`.
+Firstly it needs some fonts to be able to do anything.  These are `courier.ttf`, `roman.ttf`, `sansserif.ttf`, `ocra.ttf` and `script.ttf` and must be in the directory `~/.dosbox/FONTS` (or `.config/dosbox-x/FONTS on newer versions`) — note the capital letters.  It would appear that the only one that is essential is `courier.ttf`.  It doesn’t matter what the fonts actually are providing they have those names.  For instance if you prefer FreeMono to Courier you can copy that to `~/.dosbox/FONTS` and rename the copy `courier.ttf` or use links. eg `ln ~/dosbox/FONTS/courier.ttf  /path/to/FreeMono.ttf`.
 
 To use it you need to set `parallel1=printer` in the `[parallel]` section of the .conf file.
 
@@ -93,7 +93,7 @@ docpath     = /home/<USER>/capture
 timeout     = 1000
 ```
 
-The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so I’ve changed it to A4 (8¼” x 11¾”).  Besides that I have changed the `timeout` from `0`.  If that’s left it will only ‘print’ when it receives a form feed and not all software sends one.  Now if no data comes for one second it assumes that's all there is and 'prints'.
+The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so I’ve changed it to A4 (8¼” x 11¾”).  Besides that I have changed the `timeout` from `0`.  If that’s left it will only ‘print’ when it receives a form feed and not all software sends one.  Now if no data comes for one second it assumes that's all there is and ‘prints’.
 
 In `docpath`, `<USER>` needs changing to your user name.  Another 'quirk' is that `~/` won't work here; it has to be given in full.
 
