@@ -21,7 +21,7 @@ You also need `ffmpeg` and `libavdevice58` if you want to compile in the audio c
 
 Be warned though it took over half-an-hour for me.
 
-Now go to https://github.com/joncampbell123/dosbox-x and click the green *Clone or download* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
+Now go to https://github.com/joncampbell123/dosbox-x and click the green *Clone* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
 
 To build the full version of DOSBox-X type:—
 
