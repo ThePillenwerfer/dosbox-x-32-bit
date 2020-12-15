@@ -13,7 +13,7 @@ Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this 
 
 	sudo apt-get install automake libncurses-dev nasm libsdl-net1.2-dev libpcap-dev libfluidsynth-dev libavformat-* libswscale-* libavcodec-* libfreetype6* libsdl2-dev libsdl2-net-dev
 
-Now go to https://github.com/joncampbell123/dosbox-x and click the green *Clone* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
+Now go to https://github.com/joncampbell123/dosbox-x and click the green *Code* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
 
 To build the full version of DOSBox-X type:—
 
