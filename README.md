@@ -13,9 +13,7 @@ Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this 
 
 	sudo apt-get install automake libncurses-dev nasm libsdl-net1.2-dev libpcap-dev libfluidsynth-dev libavformat-* libswscale-* libavcodec-* libfreetype6* libsdl2-dev libsdl2-net-dev
 
-Now go to https://github.com/joncampbell123/dosbox-x and click the green *Code* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
-
-To build the full version of DOSBox-X type:—
+Now go to https://github.com/joncampbell123/dosbox-x and click the green *Code* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it and type:—
 
 	./build --enable-sdl2
 
@@ -73,7 +71,7 @@ The official guide to printing is here:  https://github.com/Wengier/dosbox-x-wik
 
 My preferred way of printing is to set `parellel1=file` and then print the resulting file using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer.  If your DOS program can only operate with a dot-matrix printer you'll have to use the virtual one though.
 
-Printing a file that has been created either by capture or the virtual dot-matrix printer can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print sets up CapturePrint, which actually does the printing,  then loads DOSBox-X and when you quit that switches off the printing mechanism.  Normal DOSBox-X parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**.  As they stand they assume that DOSBox-X sends files it has captured from LPT1 or created with the virtual dot-matrix printer to `~/capture`, that the CapturePrint script is in `~/config/dosbox-x` and that the DOSBox-X binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`, plus `ghostscript` if you want to print postscript files created with the virtual dot-matrix printer.
+Printing a file that has been created either by capture or the virtual dot-matrix printer can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print sets up CapturePrint, which actually does the printing,  then loads DOSBox-X and when you quit that switches off the printing mechanism.  Normal DOSBox-X parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**.  As they stand they assume that DOSBox-X sends files it has captured from LPT1 or created with the virtual dot-matrix printer to `~/capture`, that the CapturePrint script is in `~/.config/dosbox-x` and that the DOSBox-X binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`, plus `ghostscript` if you want to print postscript files created with the virtual dot-matrix printer.
 
 Besides the above you need to configure your DOS program.  These vary as to how much you can configure them though.  Ideally if you are using the virtual dot-matrix printer it would be set-up to print to an Epson SQ-860 but this may not be possible if the program pre-dates that model.  I've found LQ-800 to work as does IBM Pro Printer and IBM Graphics Printer.  The good old Epson FX-80 causes the lines to print too far apart meaning they come out five to the inch instead of six.  As previously said, if your program could print to an HP Laserjet the best way is to set it to that and use the `parellel1=file` method.
 
