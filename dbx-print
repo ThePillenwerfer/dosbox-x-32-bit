@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-PathToCapturePrint=~/.dosbox         # Where the CapturePrint script is.
+PathToCapturePrint=~/.config/dosbox-x         # Where the CapturePrint script is.
 
 # Set-up printing
 echo Setting-up printing
 $PathToCapturePrint/CapturePrint &
 
 # Run DOSBox-X
-dosbox-x                             # Add path and parameters if needed.
+dosbox-x                                      # Add path and parameters if needed.
 
 #Cancel printing
 echo Stop printing
