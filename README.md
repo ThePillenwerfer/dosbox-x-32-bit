@@ -25,7 +25,7 @@ Now a load of meaningless text will appear on your screen that's scrolling too q
 
 	src/dosbox-x
 
-It will be very big though.  To get it down to a sensible size run:—
+It will be very big though.  To get it down to a sensible size, if you want to, run:—
 
     strip --strip-all src/dosbox-x
 
