@@ -1,8 +1,4 @@
 0.83.9
-  - The Configuration Tool will now be centered within
-    the DOSBox-X window for a better looking. (Wengier)
-  - Improved compatability with Watcom C++ 2.0 when
-    long filename (LFN) support is enabled. (Wengier)
   - Added read-only options to the Drive menu to mount
     the specified drive in read-only mode. (Wengier)
   - Added support for starting DOSBox-X in a specific
@@ -61,8 +57,7 @@
     cache is allocated and to support dual mapping.
   - Added OPL3Duo support, which passes OPL3 output
     to an OPL3Duo Arduino board with a specific
-    configuration if desired. Set the config option
-    "oplemu=opl3duoboard" to use it. (josephillips85)
+    configuration if desired. (josephillips85)
 0.83.8
   - Added support for scalable TrueType font (TTF)
     output for text-mode programs. Set "output=ttf"
