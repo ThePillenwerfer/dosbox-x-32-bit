@@ -1,8 +1,8 @@
 The sole purpose of this repository is to provide a 32-bit Linux binary of DOSBox-X. Its main repository only provides a 64-bit one and that is packed in .rpm format. Uses of Debian-derived systems can however download that, open it with an archive manager and extract the binary.
 
-It took me a lot of blood, toil, tears and sweat to get it working and having done so I may as well share the fruits of my labours with anybody else who wants it.  It is however offered strictly 'as is' with no promises that it will work for anybody else.  It has only been tested on Debian Buster so what versions of the Ubuntu family it be compatible with I don't know.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
+It took me a lot of blood, toil, tears and sweat to get it working and having done so I may as well share the fruits of my labours with anybody else who wants it.  It is however offered strictly 'as is' with no promises that it will work for anybody else.  It has only been tested on Debian so what versions of the Ubuntu family it be compatible with I don't know.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
-Click __*release*__, then __*dosbox-x\_0.83.9\_i386\_buster.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.9_i386_buster.deb` from a terminal.  
+Click __*releases*__, then __*dosbox-x\_0.83.9\_i386\_<version>.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.9_i386_<version>.deb` from a terminal.  
 
 
 # Building DOSBox-X
