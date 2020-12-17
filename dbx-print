@@ -7,7 +7,7 @@ echo Setting-up printing
 $PathToCapturePrint/CapturePrint &
 
 # Run DOSBox-X
-dosbox-x                                      # Add path and parameters if needed.
+dosbox-x "$@"                                 # Add path and parameters if needed.
 
 #Cancel printing
 echo Stop printing
