@@ -1,6 +1,20 @@
 0.83.9
-  - Added read-only options to the Drive menu to mount
-    the specified drive in read-only mode. (Wengier)
+  - Added menu option "Create blank disk images..."
+    (under "DOS" menu) to create blank floppy or hard
+    disk images of a common disk size, including 360KB,
+    400KB, 720KB, 1.2MB, 1.44MB and 2.88MB for floppy
+    disk images and 250MB, 520MB, 1GB, 2GB, 4GB and 8GB
+    for hard disk images. The 1GB option (-t hd_1gig)
+    is also added to IMGMAKE command. (Wengier)
+  - The Configuration Tool will now be centered within
+    the DOSBox-X window for a better looking. (Wengier)
+  - DOSBox-X will now automatically synchronize the
+    date/time with the host system by default, which
+    can be turned off by setting the new config option
+    "synchronize time" to "false" in [dosbox] section,
+    or if you manually change the date/time. (Wengier)
+  - Improved compatability with Watcom C++ 2.0 when
+    long filename (LFN) support is enabled. (Wengier)
   - Added support for starting DOSBox-X in a specific
     display on a multi-screen setup (Windows builds as
     well as Linux/macOS SDL2 builds). A config option
@@ -12,8 +26,25 @@
   - DOSBox-X will now pop up a message box to inform
     the user when a Direct3D pixel shader is loaded
     from the menu on the Windows platform. (Wengier)
-  - Enhanced parallel1-3 config options in [parallel]
-    section to allow the generated files to be started
+  - Extended serial (COM) ports from COM1-COM3 to COM1-
+    COM9 in the [serial] section. The config options
+    serial4-9 are advanced options. You can optionally
+    specify base addresses for any serial ports. When
+    the "file" option is used, you can additionally
+    specify a program to open the file with "openwith"
+    option. If the specified program cannot be executed
+    due to some problem, DOSBox-X will try to start a
+    program as specified with the "openerror" action,
+    or it will show an error. For both serial (COM) and
+    parallel (LPT) ports options, the program commands
+    can be quoted with double quotes, or with single
+    quotes if the "squote" option is added. (Wengier)
+  - Extended parallel (LPT) ports from LPT1-LPT3 to
+    LPT1-LPT9 in the [parallel] section. Config options
+    lpt4-9 are advanced config options. You can also
+    optionally specify base addresses and IRQs for
+    these ports. The parallel1-9 config options are
+    enhanced to allow the generated files to be started
     with the specified action: "openpcl" to start a
     program to open the file if the print output is
     detected to be PCL; "openps" to start a program if
@@ -24,6 +55,22 @@
     specified program(s) cannot be executed, DOSBox-X
     will try to start a program as specified with the
     "openerror" action, or show an error. (Wengier)
+  - Added "openwith" and "openerror" config options to
+    [printer] section to start the specified program to
+    open the printer output file. The [printer] section
+    also accepts "fontdir" option where you can change
+    the path ("FONTS" by default) where the printer TTF
+    fonts (including courier.ttf, ocra.ttf, roman.ttf,
+    sansserif.ttf, script.ttf) are located. (Wengier)
+  - Added read-only options to the Drive menu to mount
+    host folders/drives or image files to the specified
+    drive letter in read-only mode. (Wengier)
+  - Implemented PhysFS support so that you can mount
+    archives (such as zip) as drives in read-only mode,
+    e.g. "MOUNT C TEST.ZIP" or "MOUNT D FILES.7Z". Some
+    code is ported from a custom DOSBox fork. The menu
+    option "Mount an archive file (ZIP/7Z)" is added to
+    Drive menu to mount archives as Drives. (Wengier)
   - Implemented file locking support for mounting disk
     image files so that you cannot mount the same disk
     image files in read/write mode at the same time as
@@ -42,22 +89,49 @@
   - The functions "Load mapper file" & "Stop clipboard
     pasting" are added to the mapper so that you can
     defined shortcut keys for them. (Wengier)
+  - Added ttf.fontbold, ttf.fontital, and ttf.fontboit
+    config options so that you can specify actual bold
+    italic, and bold-italic TrueType fonts for use with
+    the TTF output that will render the bold, italic,
+    and bold-italic text styles using the actual TTF
+    fonts (e.g. consolab, consolai, consolaz instead of
+    consola) instead of making the original TTF font
+    bold, italic, bold-italic automatically. (Wengier)
+  - You can now press the key combination Ctrl+Tab in
+    the shell to see a list of files/directories that
+    can be completed by the Tab completion. (Wengier)
   - Added SETCOLOR command to view or change the text-
     mode color scheme settings. Also fixed the color
     palette for the TTF output. (Wengier)
+  - Separated "TTF options" menu group that contains
+    TrueType font (TTF) related menu options from the
+    "Text-mode" menu group in "Video" menu. (Wengier)
   - The "Show menu bar" option now appears in system
     menu of the Windows SDL2 build too. (Wengier)
+  - If a language file fails to load, DOSBox-X will now
+    show a warning dialog instead of exiting. (Wengier)
+  - Fixed the mouse sensitivity menu option (under the
+    "DOS" menu) not working. (Wengier)
   - Fixed the color palette problem when switching to
     graphic mode from mono mode. (Wengier)
   - Fixed full-screen TTF output may not fully cover
     the background screen in Linux. (Wengier)
   - Fixed that lines starting with "%" in [autoexec]
     section are being ignored. (Wengier)
+  - Fixed issues with building the code with original
+    MinGW using the ./build-mingw script. (Wengier)
+  - IMGMOUNT now assumes the ISO type for .GOG/.INS
+    files (which are equivalent to .CUE/.INS files)
+    if no type is specified by the user. (Wengier)
   - Improved the dynamic core including the way its
     cache is allocated and to support dual mapping.
+  - Added support for automatic switching from TTF
+    ouptut to another output in PC-98 mode, allowing
+    Windows 3.1 to run in this mode. (Wengier)
   - Added OPL3Duo support, which passes OPL3 output
     to an OPL3Duo Arduino board with a specific
-    configuration if desired. (josephillips85)
+    configuration if desired. Set the config option
+    "oplemu=opl3duoboard" to use it. (josephillips85)
 0.83.8
   - Added support for scalable TrueType font (TTF)
     output for text-mode programs. Set "output=ttf"
