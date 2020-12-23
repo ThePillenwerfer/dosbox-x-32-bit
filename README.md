@@ -1,8 +1,8 @@
 The sole purpose of this repository is to provide a 32-bit Linux binary of DOSBox-X. Its main repository only provides a 64-bit one and that is packed in .rpm format. Uses of Debian-derived systems can however download that, open it with an archive manager and extract the binary.
 
-It took me a lot of blood, toil, tears and sweat to get it working and having done so I may as well share the fruits of my labours with anybody else who wants it.  It is however offered strictly 'as is' with no promises that it will work for anybody else.  It has only been tested on Debian so what versions of the Ubuntu family it be compatible with I don't know.  There are two versions available: one built on Debian Buster and the other on Stretch so if one doesn't work try the other.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
+It took me a lot of blood, toil, tears and sweat to get it working and having done so I may as well share the fruits of my labours with anybody else who wants it.  It is however offered strictly 'as is' with no promises that it will work for anybody else.  It has only been tested on Debian so what versions of the Ubuntu family it may be compatible with I don't know.  Two versions are available, one built on Buster and one on Stretch.  If one doesn't work, try the other and if both fail see next section.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
-Click __*releases*__, then __*dosbox-x\_0.83.9\_i386\_\<version\>.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.9_i386_<version>.deb` from a terminal.  
+Click __*releases*__, then __*dosbox-x\_0.83.9\_i386\_<version\>.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.9_i386_<version>.deb` from a terminal.  To launch it type dosbox-x in a termninal or add it to the menu.
 
 
 # Building DOSBox-X
@@ -13,23 +13,27 @@ Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this 
 
 	sudo apt-get install automake libncurses-dev nasm libsdl-net1.2-dev libpcap-dev libfluidsynth-dev libavformat-* libswscale-* libavcodec-* libfreetype6* libsdl2-dev libsdl2-net-dev
 
-Now go to https://github.com/joncampbell123/dosbox-x and click the green *Code* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it and type:—
+Now go to https://github.com/joncampbell123/dosbox-x and click the green *Code* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
+
+To build the full version of DOSBox-X type:—
 
 	./build --enable-sdl2
 
 There are other ./build-whatever scripts available for different situations.
 
-Now a load of meaningless text will appear on your screen that's scrolling too quickly to read.  Some of it will look like error messages but don't matter.  A good while later that should finish and you’ll have a binary called `dosbox-x` in the `src` sub-directory. You can test that by typing:—
+Now a load of meaningless text will appear on your screen that's scrolling too quickly to read.  Some of it will look like error messages but don't matter and it may appear to freeze-up at times.  A good while later (ten to fifteen minutes on my computers) that should finish and you’ll have a binary called `dosbox-x` in the `src` sub-directory. You can test that by typing:—
 
 	src/dosbox-x
 
-It will be very big though.  To get it down to a sensible size, if you want to, run:—
+It will be very big though.  To get it down to a sensible size run:—
 
     strip --strip-all src/dosbox-x
 
 If all is well you can move that to wherever you like, though the usual place is `/usr/bin.`  This is best done by running:— 
 
     sudo make install
+
+After that you can launch it by typing `dosbox-x` in a terminal or adding it to the Menu.
 
 
 # Configuration
@@ -63,16 +67,49 @@ There is a Wiki for DOSBox-X at https://github.com/Wengier/dosbox-x-wiki/wiki wh
 
 Selecting the UK keyboard layout in either the `[DOS]` section of the `.conf` file or by running `keyb uk` causes slight distortion of the text on screen.  This can be avoided by running `keyb uk 437` instead.  This can be added to the `[autoexec]` section of the `.conf` file, as in the example above.
 
+
 # Printing
 
-DOSBox-X has a built-in virtual dot-matrix printer taken from DOSBox-Daum but it's somewhat rough 'round the edges as yet.  It was only from early May 2020 that it even worked at all on Linux and still can't actually print to a real USB  printer, only produce an image of what would have come out of one. 
+DOSBox-X has a built-in virtual dot-matrix printer taken from DOSBox-Daum but it's somewhat rough 'round the edges as yet.  It was only from early May 2020 that it even worked at all on Linux though there have recently been big improvements. 
 
 The official guide to printing is here:  https://github.com/Wengier/dosbox-x-wiki/wiki/Guide%3ASetting-up-printing-in-DOSBox%E2%80%90X
 
-My preferred way of printing is to set `parellel1=file` and then print the resulting file using `lpr`. That works fine if it’s plain text or PCL, such as is the case if the DOS program is set to print to an HP Laserjet printer.  If your DOS program can only operate with a dot-matrix printer you'll have to use the virtual one though.
+If the DOS program could print to an HP Laserjet printer set `parallel1=file file:output1.prn timeout:1000 openpcl:lpr` in the `[parallel]` section of the `.conf` file.  Similar settings can be used if your program could print to a PostScript printer or if you are only printing plain text.
 
-Printing a file that has been created either by capture or the virtual dot-matrix printer can be automated by use of the two scripts `dbx-print` and `CapturePrint`.  dbx-print sets up CapturePrint, which actually does the printing,  then loads DOSBox-X and when you quit that switches off the printing mechanism.  Normal DOSBox-X parameters can be added after dbx-print.  **NOTE:  BOTH THESE SCRIPTS ARE LIKELY TO NEED AMENDING TO SUIT YOUR SET-UP**.  As they stand they assume that DOSBox-X sends files it has captured from LPT1 or created with the virtual dot-matrix printer to `~/capture`, that the CapturePrint script is in `~/.config/dosbox-x` and that the DOSBox-X binary is somewhere in your `$PATH`.  You will also need to have installed `inotify-tools`, plus `ghostscript` if you want to print postscript files created with the virtual dot-matrix printer.
+If your program is outputting printer data with ESC/P coding, as used by dot-matrix printers, you'll have to use the virtual one.
 
-Besides the above you need to configure your DOS program.  These vary as to how much you can configure them though.  Ideally if you are using the virtual dot-matrix printer it would be set-up to print to an Epson SQ-860 but this may not be possible if the program pre-dates that model.  I've found LQ-800 to work as does IBM Pro Printer and IBM Graphics Printer.  The good old Epson FX-80 causes the lines to print too far apart meaning they come out five to the inch instead of six.  As previously said, if your program could print to an HP Laserjet the best way is to set it to that and use the `parellel1=file` method.
+To use it you need to set `parallel1=printer` in the `[parallel]` section of the `.conf` file.
+
+To work it needs some fonts.  On Linux it tries to use Liberation Mono, Roman and Sans but may have trouble finding them depending on where your version of Linux stores them.  You can tell it in the `[printer]` section with `fontpath=`, eg `fontpath=/usr/share/fonts/truetype/liberation`.  In practice you're unlikely to need anything other than the monospaced one.  If you prefer something else to Liberation Mono make a directory `~/.config/dosbox-x/FONTS` — note the capital letters — and put a copy of your chosen font in it and rename it `courier.ttf`.  You can also use links, eg `ln /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf ~/.config/dosbox-x/FONTS/courier.ttf` or `ln ~/.fonts/<something you've downloaded> ~/.config/dosbox-x/FONTS/courier.ttf`.
+
+My suggested version of the `[printer]` section is:—
+
+```
+[printer]
+printer     = true
+dpi         = 360
+width       = 82
+height      = 117
+font_path   = /usr/share/fonts/truetype/liberation
+printoutput = ps
+openwith    = lpr
+multipage   = false
+docpath     = /home/<USER>/capture
+timeout     = 1000
+```
+
+The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so I’ve changed it to A4 (8¼” x 11¾”).  Besides that I have changed the `timeout` from `0`.  If that’s left it will only ‘print’ when it receives a form feed and not all software sends one.  Now if no data comes for one second it assumes that's all there is and 'prints'.
+
+In `docpath`, `<USER>` needs changing to your user name.  Another 'quirk' is that `~/` won't work here; it has to be given in full.
+
+According to the reference `.conf` file if `printoutput=printer` it will print to your actual printer but this **doesn't work on Linux**.  The `openwith:lpr` tells it to open the file it has created with `lpr`, ie print it.
+
+Besides the above you need to configure your DOS program.  These vary as to how much you can configure them though.  If it can print to an HP Laserjet or postscript printer it's best to set it to that and use the `parellel1=file` method.  If it can only print to dot-matrix printers and you are having to use the virtual one ideally tell the program it is connected to an Epson SQ-860.  This may not be possible though if the program pre-dates that model.  I've found LQ-800 to work as does IBM Pro Printer and IBM Graphics Printer.  The good old Epson FX-80 causes the lines to print too far apart meaning they come out five to the inch instead of six.  
 
 Really you'll have to experiment to find what works best with the soft- and hardware you have.
+
+
+
+
+
+
