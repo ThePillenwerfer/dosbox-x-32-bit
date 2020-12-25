@@ -1,0 +1,20 @@
+#!/bin/bash
+
+VERSION=dosbox-x_0.83.9_i386
+
+mkdir -p $VERSION/usr/bin
+cp src/dosbox-x $VERSION/usr/bin
+mkdir -p $VERSION/usr/share/dosbox-x/glshaders
+cp CHANGELOG $VERSION/usr/share/dosbox-x
+cp contrib/fonts/FREECG98.BMP $VERSION/usr/share/dosbox-x
+cp dosbox-x.reference.conf $VERSION/usr/share/dosbox-x
+cp contrib/glshaders/*.glsl $VERSION/usr/share/dosbox-x/glshaders
+mkdir -p $VERSION/usr/share/icons/hicolor/scalable/apps
+cp contrib/icons/dosbox-x.svg $VERSION/usr/share/icons/hicolor/scalable/apps/dosbox-x.svg
+mkdir -p $VERSION/usr/share/applications
+cp contrib/linux/com.dosbox_x.DOSBox-X.desktop $VERSION/usr/share/applications
+mkdir -p $VERSION/usr/share/metainfo
+cp contrib/linux/com.dosbox_x.DOSBox-X.metainfo.xml $VERSION/usr/share/metainfo
+cp -r DEBIAN $VERSION
+
+fakeroot dpkg-deb --build $VERSION
