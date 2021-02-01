@@ -1,12 +1,15 @@
 Package: dosbox-x
 Priority: extra
 Section: Applications/Emulators
-Maintainer: joe@Sony
+Maintainer: None@Nowhere
 Architecture: i386
-Depends: libasound2, libc6, libx11-6, libxext6, libtinfo5, zlib1g, libpng16-16, libpcap0.8, libxrandr2, libfluidsynth1, libgl1-mesa-glx, libstdc++6, libgcc1, libsdl2-2.0-0, libsdl2-net-2.0-0, libtinfo6
-Version: 0.83.9
+Depends: libasound2, libc6, libx11-6, libxext6, libtinfo5, zlib1g, libpng16-16, libpcap0.8, libxrandr2, libfluidsynth1, libgl1-mesa-glx, libstdc++6, libgcc1, libsdl2-2.0-0, libsdl2-net-2.0-0, libtinfo5
+Version: 0.83.10
 Provides: dosbox-x
-Description: Built 23 December 2020
+Description: Built 1 February 2021
  Built on Debian Buster.
-
+ .
+ https://github.com/joncampbell123/dosbox-x
+ .
+ Licensed under the GNU General Public License v2.0
 
