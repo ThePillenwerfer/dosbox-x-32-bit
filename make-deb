@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# COPY THIS TO THE ROOT OF THE SOURCE CODE AND RUN FROM THAT DIRECTORY
+
 VERSION=dosbox-x_0.83.9_i386
 
 mkdir -p $VERSION/usr/bin
