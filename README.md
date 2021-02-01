@@ -2,7 +2,7 @@ The sole purpose of this repository is to provide a 32-bit Linux binary of DOSBo
 
 It took me a lot of blood, toil, tears and sweat to get it working and having done so I may as well share the fruits of my labours with anybody else who wants it.  It is however offered strictly 'as is' with no promises that it will work for anybody else.  It has only been tested on Debian so what versions of the Ubuntu family it may be compatible with I don't know.  Two versions are available, one built on Buster and one on Stretch.  If one doesn't work, try the other and if both fail see next section.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
-Click __*releases*__, then __*dosbox-x\_0.83.9\_i386\_<version\>.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.9_i386_<version>.deb` from a terminal.  To launch it type dosbox-x in a termninal or add it to the menu.
+Click __*releases*__, then __*dosbox-x\_0.83.x\_i386\_<version\>.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.x_i386_<version>.deb` from a terminal.  To launch it type dosbox-x in a termninal or add it to the menu.
 
 
 # Building DOSBox-X
@@ -38,7 +38,7 @@ After that you can launch it by typing `dosbox-x` in a terminal or adding it to 
 
 # Configuration
 
-Settings are stored in the file `~/.config/dosbox-x/dosbox-x-0.83.9.conf`.  This repository contains the reference version which gives details of ALL the possible settings, though you’re unlikely to need most of them. For instance the configuration file I actually use only consists of:—
+Settings are stored in the file `~/.config/dosbox-x/dosbox-x-0.83.x.conf`.  This repository contains the reference version which gives details of ALL the possible settings, though you’re unlikely to need most of them. For instance the configuration file I actually use only consists of:—
 
 ```
 [sdl]
