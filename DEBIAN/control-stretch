@@ -1,0 +1,14 @@
+Package: dosbox-x
+Priority: extra
+Section: Applications/Emulators
+Maintainer: None@Nowhere
+Architecture: i386
+Depends: libasound2, libc6, libx11-6, libxext6, libtinfo5, libfreetype6, zlib1g, libpng16-16, libpcap0.8, libfluidsynth1, libgl1-mesa-glx, libstdc++6, libgcc1
+Version: 0.83.10
+Provides: dosbox-x
+Description: Built 2 February 2021 on Debian Stretch.
+ .
+ https://github.com/joncampbell123/dosbox-x
+ .
+ Licensed under the GNU General Public License v2.0
+

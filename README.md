@@ -102,7 +102,7 @@ The defaults are for printing on American ‘Letter’ paper (8½” x 11”) so
 
 In `docpath`, `<USER>` needs changing to your user name.  Another 'quirk' is that `~/` won't work here; it has to be given in full.
 
-According to the reference `.conf` file if `printoutput=printer` it will print to your actual printer but this **doesn't work on Linux**.  The `openwith:lpr` tells it to open the file it has created with `lpr`, ie print it.
+According to the reference `.conf` file if `printoutput=printer` it will print to your actual printer **but this doesn't work on Linux**.  The `openwith:lpr` tells it to open the file it has created with `lpr`, ie print it.
 
 Besides the above you need to configure your DOS program.  These vary as to how much you can configure them though.  If it can print to an HP Laserjet or postscript printer it's best to set it to that and use the `parellel1=file` method.  If it can only print to dot-matrix printers and you are having to use the virtual one ideally tell the program it is connected to an Epson SQ-860.  This may not be possible though if the program pre-dates that model.  I've found LQ-800 to work as does IBM Pro Printer and IBM Graphics Printer.  The good old Epson FX-80 causes the lines to print too far apart meaning they come out five to the inch instead of six.  
 
