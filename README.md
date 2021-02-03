@@ -49,7 +49,7 @@ mapperfile=~/.config/dosbox-x/mapper-dosbox-x.map
 captures=~/capture
 
 [parallel]
-parallel1=file
+parallel1=file file:output1.prn timeout:1000 openpcl:lpr
 
 [autoexec]
 # Lines in this section will be run at startup.
@@ -74,7 +74,11 @@ DOSBox-X has a built-in virtual dot-matrix printer taken from DOSBox-Daum but it
 
 The official guide to printing is here:  https://github.com/Wengier/dosbox-x-wiki/wiki/Guide%3ASetting-up-printing-in-DOSBox%E2%80%90X
 
-If the DOS program could print to an HP Laserjet printer set `parallel1=file file:output1.prn timeout:1000 openpcl:lpr` in the `[parallel]` section of the `.conf` file.  Similar settings can be used if your program could print to a PostScript printer or if you are only printing plain text.
+If the DOS program could print to an HP Laserjet printer set 
+
+```parallel1=file file:output1.prn timeout:1000 openpcl:lpr```
+
+in the `[parallel]`section of the `.conf` file.  Similar settings can be used if your program could print to a PostScript printer or if you are only printing plain text.
 
 If your program is outputting printer data with ESC/P coding, as used by dot-matrix printers, you'll have to use the virtual one.
 
