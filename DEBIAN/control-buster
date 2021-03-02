@@ -6,9 +6,13 @@ Architecture: i386
 Depends: libasound2, libc6, libsdl2-2.0-0, libtinfo6, libfreetype6, libsdl2-net-2.0-0, zlib1g, libpng16-16, libpcap0.8, libx11-6, libxrandr2, libfluidsynth1, libavcodec58, libavformat58, libavutil56, libswscale5, libgl1, libstdc++6, 	libx32gcc1
 Version: 0.83.11
 Provides: dosbox-x
+<<<<<<< HEAD
 Description: Built 2 March 2021 on Debian Buster.
+=======
+Description: Built 1 March 2021 on Debian Buster.
+>>>>>>> 796548e7182ecffedc30f6b5256a357c7acdaba1
  .
- https://github.com/joncampbell123/dosbox-x
+ https://github.com/joncampbell123/dosbox-x/tree/dosbox-x-v0.83.11
  .
  Licensed under the GNU General Public License v2.0
 
