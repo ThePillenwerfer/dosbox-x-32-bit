@@ -4,10 +4,14 @@ It took me a lot of blood, toil, tears and sweat to get it working and having do
 
 Click __*releases*__, then __*dosbox-x\_0.83.x\_i386\_<version\>.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.x_i386_<version>.deb` from a terminal.  To launch it type dosbox-x in a termninal or add it to the menu.
 
+The version of DOSBox-X offered here is now quite old but there have been no major improvements made upstream since it was built.
+
 
 # Building DOSBox-X
 
-The best thing is to really build DOSBox-X yourself as that has the greatest chance of the result being suitable for your computer.  Unfortunately Dosbox-x's documentation is still far from complete — not surprising as the people involved with it concentrate their efforts on the software itself — and they seem to assume people already know how to do this. It took me months to fathom how to build it successfully so here’s what I learnt.
+The best thing is to really build DOSBox-X yourself as that has the greatest chance of the result being suitable for your computer.  Unfortunately Dosbox-x's documentation is still far from complete — not surprising as the people involved with it concentrate their efforts on the software itself — and they seem to assume people already know how to do this.  It took me months to fathom how to build it successfully so here’s what I learnt.  Doing it is time consuming rather than difficult and if you aren't computer-savvy enough to built it you'll struggele to use it.
+
+The instructions apply to both 32- and 64-bit builds.
 
 Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this by installing `build-essential`. Then you need dosbox-x’s build dependencies. These are installed by:—
 
