@@ -9,9 +9,9 @@ The version of DOSBox-X offered here is now quite old but there have been no maj
 
 # Building DOSBox-X
 
-The best thing is to really build DOSBox-X yourself as that has the greatest chance of the result being suitable for your computer.  Unfortunately Dosbox-x's documentation is still far from complete — not surprising as the people involved with it concentrate their efforts on the software itself — and they seem to assume people already know how to do this.  It took me months to fathom how to build it successfully so here’s what I learnt.  Doing it is time consuming rather than difficult and if you aren't computer-savvy enough to built it you'll struggele to use it.
+The best thing is to really build DOSBox-X yourself as that has the greatest chance of the result being suitable for your computer.  Unfortunately Dosbox-x's documentation is still far from complete — not surprising as the people involved with it concentrate their efforts on the software itself — and they seem to assume people already know how to do this.  It took me months to fathom how to build it successfully so here’s what I learnt.  Doing it is time consuming rather than difficult and if you aren't computer-savvy enough to built it you'll struggle to use it.
 
-The instructions apply to both 32- and 64-bit builds.
+The instructions below apply to both 32- and 64-bit builds.
 
 Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this by installing `build-essential`. Then you need dosbox-x’s build dependencies. These are installed by:—
 
