@@ -2,24 +2,24 @@ The sole purpose of this repository is to provide a 32-bit Linux binary of DOSBo
 
 DOSBox-X is also now available in the Debian Unstable (Sid) repository.  However they have split it into two packages so you first need to download and install https://packages.debian.org/sid/dosbox-x-data before [DOSBox-X](https://packages.debian.org/sid/dosbox-x) itself.
 
-It took me a lot of blood, toil, tears and sweat to get it working and having done so I may as well share the fruits of my labours with anybody else who wants it.  It is however offered strictly 'as is' with no promises that it will work for anybody else.  It has only been tested on Debian so what versions of the Ubuntu family it may be compatible with I don't know.  Three versions are available, one built on Bookworm, one on Buster,  and one on Stretch.  If one doesn't work, try the other and if none work see next section.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
+It took me a lot of blood, toil, tears and sweat to get it working and having done so I may as well share the fruits of my labours with anybody else who wants it.  It is however offered strictly 'as is' with no promises that it will work for anybody else.  It has only been tested on Debian so what versions of the Ubuntu family it may be compatible with I don't know.  Three versions are available, one built on Bookworm, one on Buster,  and one on Stretch.  If one doesn't work, try another and if none work see next section.  For all that it is 32-bit it can be used on a 64-bit system if you run the command `sudo dpkg --add-architecture i386` before installing it or have done so in the past.
 
-Click __*releases*__, then __*dosbox-x\_0.83.x\_i386\_<version\>.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo dpkg -i dosbox-x_0.83.x_i386_<version>.deb` from a terminal.  To launch it type dosbox-x in a termninal or start it from the menu.
+Click __*releases*__, then __*dosbox-x\_0.83.x\_i386\_<version\>.deb*__ to download it.  When the download has completed you can install it by double-clicking it or entering `sudo apt install ./dosbox-x_0.83.x_i386_<version>.deb` from a terminal.  To launch it type dosbox-x in a termninal or start it from the menu.
 
 The version of DOSBox-X offered here is now quite old but there have been no major improvements made upstream since it was built.
 
 
 # Building DOSBox-X
 
-The best thing is to really build DOSBox-X yourself as that has the greatest chance of the result being suitable for your computer.  Unfortunately Dosbox-x's documentation is still far from complete — not surprising as the people involved with it concentrate their efforts on the software itself — and they seem to assume people already know how to do this.  It took me months to fathom how to build it successfully so here’s what I learnt.  Doing it is time consuming rather than difficult and if you aren't computer-savvy enough to built it you'll struggle to use it.
+The best thing is to really build DOSBox-X yourself as that has the greatest chance of the result being suitable for your computer.  Unfortunately DOSBox-X's documentation is still far from complete — not surprising as the people involved with it concentrate their efforts on the software itself — and they seem to assume people already know how to do this.  It took me months to fathom how to build it successfully so here’s what I learnt.  Doing it is time consuming rather than difficult and if you aren't computer-savvy enough to built it you'll struggle to use it.
 
 The instructions below apply to both 32- and 64-bit builds.
 
-Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this by installing `build-essential`. Then you need dosbox-x’s build dependencies. These are installed by:—
+Firstly you need the stuff to build anything. On Debian/Ubuntu you can get this by installing `build-essential`. Then you need DOSBox-X’s build dependencies. These are installed by:—
 
 	sudo apt-get install automake libncurses-dev nasm libsdl-net1.2-dev libpcap-dev libfluidsynth-dev libavformat-* libswscale-* libavcodec-* libfreetype6* libsdl2-dev libsdl2-net-dev
 
-Now go to https://github.com/joncampbell123/dosbox-x and click the green *Code* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
+Now go to https://github.com/joncampbell123/dosbox-x/tree/dosbox-x-v0.83.13 and click the green *Code* button and choose *Download ZIP*. When that’s arrived open it and extract the files to a directory of your choosing. Open a terminal and cd into it.
 
 To build the full version of DOSBox-X type:—
 
